@@ -31,12 +31,20 @@ const monsters = [
   {
     name: "Server",
     level: 8,
-    health: 60
+    health: 90
   },
+
+  {
+    name: "Prep Cook",
+    level: 15,
+    health: 150
+  },
+
+
   {
     name: "Executive Chef",
     level: 20,
-    health: 300
+    health: 400
   }
 ]
 const locations = [
@@ -54,8 +62,8 @@ const locations = [
   },
   {
     name: "cave",
-    "button text": ["Fight the Kitchen Assistant (Easy)", "Fight Server (Medium)", "Return 🏡"],
-    "button functions": [fightSlime, fightBeast, goTown],
+    "button text": ["Fight the Kitchen Assistant (Easy)", "Fight Server (Medium)", "Fight the Prep Cook (Hard)", "Return 🏡"],
+    "button functions": [fightSlime, fightBeast, fightWolf, goTown],
     text: "You enter the local diner. You see some figures approaching you...Time to draw your weapon!"
   },
   {
@@ -67,7 +75,7 @@ const locations = [
   {
     name: "kill monster",
     "button text": ["Return 🏡", "Return 🏡", "Return 🏡"],
-    "button functions": [goTown, goTown, goTown],
+    "button functions": [goTown, goTown, easterEgg],
     text: 'The enemy yelps! Not the restaurant review type of yelp. The type of yelp where you lose HP. Anyways, you gain experience points and find gold.'
   },
   {
@@ -171,8 +179,13 @@ function fightBeast() {
   goFight();
 }
 
-function fightDragon() {
+function fightWolf() {
   fighting = 2;
+  goFight();
+}
+
+function fightDragon() {
+  fighting = 3;
   goFight();
 }
 
@@ -285,4 +298,13 @@ function pick(guess) {
       lose();
     }
   }
+}
+
+function showPopup() {
+  Swal.fire({
+      title: "How to Play",
+      text: "Defeat villians, gain gold, beat the boss. The more you fight, the more gold you'll earn, which can be used to buy more advanced weapons!",
+      showCloseButton: true,
+      icon: 'info' 
+  });
 }
