@@ -1,6 +1,6 @@
 let xp = 0;
 let health = 100;
-let gold = 50;
+let gold = 10;
 let currentWeapon = 0;
 let fighting;
 let monsterHealth;
@@ -17,21 +17,21 @@ const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 const weapons = [
-  { name: 'Garlic Glove', power: 5 },
-  { name: 'Garlic Chain', power: 30 },
-  { name: 'Garlic Bat', power: 50 },
-  { name: 'Garlic Sword', power: 100 }
+  { name: 'Garlic Glove ', power: 5 },
+  { name: 'Garlic Chain ', power: 30 },
+  { name: 'Garlic Bat ', power: 50 },
+  { name: 'Garlic Sword ', power: 100 }
 ];
 const monsters = [
   {
     name: "Kitchen Assistant",
     level: 2,
-    health: 15
+    health: 12
   },
   {
     name: "Server",
-    level: 8,
-    health: 90
+    level: 10,
+    health: 60
   },
 
   {
@@ -108,9 +108,11 @@ function update(location) {
   button1.innerText = location["button text"][0];
   button2.innerText = location["button text"][1];
   button3.innerText = location["button text"][2];
+
   button1.onclick = location["button functions"][0];
   button2.onclick = location["button functions"][1];
   button3.onclick = location["button functions"][2];
+
   text.innerHTML = location.text;
 }
 
@@ -256,7 +258,7 @@ function winGame() {
 function restart() {
   xp = 0;
   health = 100;
-  gold = 50;
+  gold = 10;
   currentWeapon = 0;
   inventory = ["Garlic Clove"];
   goldText.innerText = gold;
